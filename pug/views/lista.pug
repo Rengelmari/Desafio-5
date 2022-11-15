@@ -1,0 +1,20 @@
+html
+    head
+        title="Productos Ingresados"
+    body
+        h1="Vista de Productos"
+        if productos.length == 0
+            h3='No hay datos.'
+        else 
+            table(class="table table-striped")
+                tr 
+                    th='Titulo'
+                    th='Precio'
+                    th='Imagen'
+                each producto in productos
+                    tr 
+                        td=producto.titulo 
+                        td=producto.precio 
+                        td
+                            img(src=producto.thumbnail)
+        a(href="/")="Ir al formulario"

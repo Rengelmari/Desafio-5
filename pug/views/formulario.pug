@@ -1,0 +1,20 @@
+html 
+    head 
+        title="Formulario"
+    body 
+        h1="Formulario"
+        form(action="/" method="post")
+            div(class="form-outline mb-4")
+                input(type="text" id="titulo" name="titulo" class="form-control")
+                label(for="titulo" class="form-label") Titulo
+            div(class="form-outline mb-4")
+                input(type="text" id="precio" name="precio" class="form-control")
+                label(for="precio" class="form-label") Precio
+            div(class="form-outline mb-4")
+                input(type="text" id="thumbnail" name="thumbnail" class="form-control")
+                label(for="thumbnail" class="form-label") Url de la foto de producto
+            button(type="submit" class="btn btn-primary btn-block mb-4")= "Guardar"
+        br
+        a(href="/productos")= "Ir a la lista"
+
+

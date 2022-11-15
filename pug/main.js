@@ -9,8 +9,9 @@ app.use('/static', express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.set('views', __dirname + '/views'); 
 app.set('view engine', 'pug'); 
-app.set('views', __dirname + './views'); 
+
 
 class Contenedor {
     constructor(productos) {
@@ -67,7 +68,6 @@ class Contenedor {
         if (indexSeleccionado != -1) {
         this.productos.splice(indexSeleccionado, 1);
         }
-
     }
 
     deleteAll() {
@@ -76,8 +76,6 @@ class Contenedor {
 }
 
 const productos = new Contenedor([]);
-
-
 
 app.get('/productos', (peticion, respuesta) => {
     const listaProductos = productos.getAll();
@@ -95,8 +93,6 @@ app.post('/', (peticion, respuesta) => {
 app.get('/', (peticion, respuesta) => {
     respuesta.render('formulario', {});
 });
-
-
 
 const servidor = app.listen(PUERTO, () => {
     console.log(`Servidor escuchando: ${servidor.address().port}`);
